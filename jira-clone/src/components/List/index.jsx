@@ -9,12 +9,11 @@ const List = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(props);
     setData(props);
   }, [props]);
 
-  const columns = React.useMemo(
-    () => [
+  console.log("props->", props);
+  const columns = [
       {
         Header: "Name",
         columns: [
@@ -37,18 +36,28 @@ const List = (props) => {
           },
         ],
       },
-    ],
-    []
-  );
+    ];
 
-  console.log("data", data);
-  if (data === undefined) return <h1>Loading ...</h1>
+  const updateTask = (el) => {
+    if (el.progress === "not_started") {
+      dispatch({
+        type: "UPDATE_DATA_UP_PROGRESS",
+        payload: el.id,
+      });
+    } else if (el.progress === "done") {
+    } else {
+    }
+    const tempSelectedList = [...props.data];
+    setData(tempSelectedList);
+  };
+
+  if (data === undefined) return <h1>Loading ...</h1>;
   return (
     <>
       <div>
         {data !== undefined && (
           <Styles>
-            <Table columns={columns} data={data} />
+            <Table myClick={updateTask} props={props} columns={columns} data={data} />
           </Styles>
         )}
       </div>
@@ -59,12 +68,3 @@ const List = (props) => {
 const mapStateToProps = (state) => ({ data: state.data });
 
 export default connect(mapStateToProps)(List);
-
-// eslint-disable-next-line no-lone-blocks
-{
-  /**
-    <button onClick={() => dispatch({ 
-      type: 'UPDATE_DATA_UP_PROGRESS',
-      payload: 3,
-    })}>------</button> */
-}

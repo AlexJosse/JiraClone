@@ -6,3 +6,4 @@ export const UPDATE_DATA_NOT_STARTED= 'UPDATE_DATA_NOT_STARTED';
 
 export const requestApiData = () => ({ type: REQUEST_API_DATA });
 export const receiveApiData = data => ({ type: RECEIVE_API_DATA, data });
+export const updateDataProcess = data => ({ type: UPDATE_DATA_UP_PROGRESS, data });
