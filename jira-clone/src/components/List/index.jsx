@@ -12,14 +12,13 @@ const List = (props) => {
     setData(props);
   }, [props]);
 
-  console.log("props->", props);
   const columns = [
       {
         Header: "Name",
         columns: [
           {
             Header: "Name",
-            accessor: "id",
+            accessor: "userId",
           },
         ],
       },
@@ -38,17 +37,25 @@ const List = (props) => {
       },
     ];
 
-  const updateTask = (el) => {
+  const updateTask = (el, id) => {
     if (el.progress === "not_started") {
       dispatch({
         type: "UPDATE_DATA_UP_PROGRESS",
-        payload: el.id,
+        payload: id,
       });
     } else if (el.progress === "done") {
+      dispatch({
+        type: "UPDATE_DATA_NOT_STARTED",
+        payload: id,
+      });
     } else {
+      dispatch({
+        type: "UPDATE_DATA_UP_DONE",
+        payload: id,
+      });
     }
-    const tempSelectedList = [...props.data];
-    setData(tempSelectedList);
+    const tempData = [...props.data];
+    setData(tempData);
   };
 
   if (data === undefined) return <h1>Loading ...</h1>;

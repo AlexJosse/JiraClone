@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
 const Styles = styled.div`
-  padding: 1rem;
-
+  margin: auto;
+  width: 50%;
+  border: 3px solid;
+  padding: 10px;
   table {
     border-spacing: 0;
     border: 1px solid black;
@@ -21,7 +23,7 @@ const Styles = styled.div`
       padding: 0.5rem;
       border-bottom: 1px solid black;
       border-right: 1px solid black;
-
+      width: 50%;
       :last-child {
         border-right: 0;
       }

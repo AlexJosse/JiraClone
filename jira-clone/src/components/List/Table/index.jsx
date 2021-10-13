@@ -51,7 +51,7 @@ const Table = ({ columns, data, myClick }) => {
                 prepareRow(row);
                 return (
                   <tr
-                    onClick={() => myClick(row.values)}
+                    onClick={() => myClick(row.values, row.index + 1)}
                     style={{ cursor: "pointer" }}
                     {...row.getRowProps()}
                   >

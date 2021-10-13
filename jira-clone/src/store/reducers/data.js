@@ -15,7 +15,7 @@ const Data = (state = {}, { type, data, payload }) => {
           state[index].progress = "progress";
         }
       });
-      return state;
+      return [...state];
     case UPDATE_DATA_UP_DONE:
       state.forEach((el, index) => {
         if (el.id === payload) {
@@ -29,7 +29,7 @@ const Data = (state = {}, { type, data, payload }) => {
           state[index].progress = "not_started";
         }
       });
-      return state;
+      return [...state];
     default:
       return state;
   }

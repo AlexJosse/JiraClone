@@ -18,7 +18,6 @@ const Jira = (props) => {
 
   return (
     <>
-      <h1>List</h1>
       <List />
       <Board />
     </>
