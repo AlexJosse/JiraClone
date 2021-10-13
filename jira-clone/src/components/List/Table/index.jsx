@@ -30,6 +30,7 @@ const Table = ({ columns, data, myClick }) => {
     usePagination
   );
 
+  
   return (
     <>
       {data !== undefined && (

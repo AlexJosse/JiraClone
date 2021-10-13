@@ -17,7 +17,7 @@ const List = (props) => {
         Header: "Name",
         columns: [
           {
-            Header: "Name",
+            Header: "Id Name",
             accessor: "userId",
           },
         ],
